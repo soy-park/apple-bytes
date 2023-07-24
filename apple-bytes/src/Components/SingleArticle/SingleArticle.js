@@ -4,10 +4,14 @@ import '../SingleArticle/SingleArticle.css';
 const SingleArticle = ({ chosenTitle, articles }) => {
     const chosenArticle = articles.find(article => article.title.replace(/"/g, '') === chosenTitle.replace(/"/g, ''));
 
+    const handleClick = () => {
+        console.log("hi")
+    }
+
     return (
         <main className="detailed-article-view">
             <div className="article-button-container">
-                <button onClick={}>All Articles</button>
+                <button className="Articles-button" onClick={handleClick}>All Articles</button>
             </div>
             <h2 className="headline">{chosenArticle.title}</h2>
             <div className="img-container">
