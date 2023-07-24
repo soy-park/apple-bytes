@@ -17,7 +17,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {currentPage === 'home' && <AllArticles setCurrentPage={setCurrentPage} articles={articles} />}
+      {currentPage === 'home' && <AllArticles setCurrentPage={setCurrentPage} articles={articles} setArticles={setArticles} />}
       {/* {currentPage === 'article' && <SingleArticle setCurrentPage={setCurrentPage} articles={articles} />} */}
     </div>
   );

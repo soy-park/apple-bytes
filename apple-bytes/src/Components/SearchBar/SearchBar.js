@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../SearchBar/SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ setArticles, articles }) => {
     const [input, setInput] = useState("");
 
     const handleChange = (event) => {
@@ -10,7 +10,14 @@ const SearchBar = () => {
 
     const handleSearch = (event) => {
         event.preventDefault();
+        if (!input) {
+            return alert("Please enter a search criteria")
+        } else {
+            articles.filter(article => (article.title || article.description || article.date).toLowerCase().includes(input.toLowerCase()));
+            
+        }
     }
+            
 
     return (
       <div className="searchbar-container">

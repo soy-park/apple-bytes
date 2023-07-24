@@ -3,7 +3,7 @@ import '../AllArticles/AllArticles.css';
 import ArticleBox 
 import SearchBar from '../SearchBar/SearchBar';
 
-const AllArticles = ({ setCurrentPage, articles }) => {
+const AllArticles = ({ setCurrentPage, articles, setArticles }) => {
     const articleBoxes = articles.map(article => {
         return (
             <ArticleBox
@@ -19,7 +19,7 @@ const AllArticles = ({ setCurrentPage, articles }) => {
 
     return (
         <main className="all-articles-page">
-            <SearchBar />
+            <SearchBar articles={articles} setArticles={setArticles} />
             {articleBoxes}
         </main>
     );
