@@ -13,8 +13,8 @@ const SearchBar = ({ setArticles, articles }) => {
         if (!input) {
             return alert("Please enter a search criteria")
         } else {
-            articles.filter(article => (article.title || article.description || article.date).toLowerCase().includes(input.toLowerCase()));
-            
+            const filteredArticles = articles.filter(article => (article.title || article.description || article.date).toLowerCase().includes(input.toLowerCase()));
+            setArticles(filteredArticles);
         }
     }
             
