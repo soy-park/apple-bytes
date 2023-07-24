@@ -6,8 +6,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {currentPage === 'home' && <AllArticles />}
-      {currentPage === 'article' && <SingleArticle />}
+      {currentPage === 'home' && <AllArticles currentPage={currentPage} />}
+      {currentPage === 'article' && <SingleArticle currentPage={currentPage} />}
     </div>
   );
 }
