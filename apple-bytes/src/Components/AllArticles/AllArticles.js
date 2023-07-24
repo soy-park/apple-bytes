@@ -7,6 +7,10 @@ const AllArticles = ({ setCurrentPage, articles }) => {
         return (
             <ArticleBox
                 key={Date.now()}
+                image={article.urlToImage}
+                headline={article.title}
+                date={article.publishedAt.split('T')[0]}
+                description={article.description}
             />
         ) 
     })    
