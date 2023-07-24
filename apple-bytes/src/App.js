@@ -8,8 +8,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {currentPage === 'home' && <AllArticles currentPage={currentPage} />}
-      {currentPage === 'article' && <SingleArticle currentPage={currentPage} />}
+      {currentPage === 'home' && <AllArticles setCurrentPage={setCurrentPage} />}
+      {currentPage === 'article' && <SingleArticle setCurrentPage={setCurrentPage} />}
     </div>
   );
 }
