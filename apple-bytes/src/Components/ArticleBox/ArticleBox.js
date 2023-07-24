@@ -2,7 +2,7 @@ import React from 'react';
 import '../ArticleBox/ArticleBox.css';
 import { NavLink } from 'react-router-dom';
 
-const ArticleBox = ({ image, headline, date, description, content, source, url }) => {
+const ArticleBox = ({ image, headline, date, description, content, source }) => {
     return (
         <NavLink to={`/${headline}`}>
             <img src={image} alt="Article image" className="article-image"></img>
