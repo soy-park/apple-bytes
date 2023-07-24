@@ -8,6 +8,10 @@ const SearchBar = () => {
         setInput(event.target.value)
     }
 
+    const handleSearch = (event) => {
+        event.preventDefault();
+    }
+
     return (
       <div className="searchbar-container">
         <input 
