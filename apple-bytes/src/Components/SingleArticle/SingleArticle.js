@@ -5,14 +5,14 @@ const SingleArticle = ({ chosenTitle, articles }) => {
     const chosenArticle = articles.find(article => article.title.replace(/"/g, '') === chosenTitle.replace(/"/g, ''));
 
     const handleClick = () => {
-        console.log("hi")
+        
     }
 
     return (
         <main className="detailed-article-view">
-            <div className="article-button-container">
-                <button className="Articles-button" onClick={handleClick}>All Articles</button>
-            </div>
+            <NavLink to='/'>
+                <button className="Articles-button">All Articles</button>
+            </NavLink>
             <h2 className="headline">{chosenArticle.title}</h2>
             <div className="img-container">
                 <img src={chosenArticle.urlToImage} alt="Article image"/>
