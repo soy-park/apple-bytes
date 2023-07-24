@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import { getArticles } from './fetchAPI';
 import AllArticles from './Components/AllArticles/AllArticles';
 import { Route, Switch } from 'react-router-dom';
+import SingleArticle from './Components/SingleArticle/SingleArticle';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -21,7 +22,7 @@ const App = () => {
         <Route exact path='/' render={() => <AllArticles articles={articles} setArticles={setArticles} />}/>
         <Route path='/:title' render={({match}) => {
           const chosenTitle = match.params.title;
-          return <SingleArticle chosenTitle={chosenTitle} />
+          return <SingleArticle chosenTitle={chosenTitle} articles={articles} />
         }}/>
       </Switch>
     </div>
