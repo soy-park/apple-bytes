@@ -5,20 +5,22 @@ const SearchBar = ({ setArticles, articles }) => {
     const [input, setInput] = useState("");
 
     const handleChange = (event) => {
-        setInput(event.target.value)
+        setInput(event.target.value);
+        if (!input) {
+            setArticles(articles);
+        }
     }
 
     const handleSearch = (event) => {
         event.preventDefault();
         if (!input) {
-            return alert("Please enter a search criteria")
+            return alert("Please provide a search term")
         } else {
             const filteredArticles = articles.filter(article => (article.title || article.description || article.date).toLowerCase().includes(input.toLowerCase()));
             setArticles(filteredArticles);
         }
     }
             
-
     return (
       <div className="searchbar-container">
         <input 
