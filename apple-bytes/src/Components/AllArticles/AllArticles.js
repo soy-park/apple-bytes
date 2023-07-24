@@ -13,6 +13,7 @@ const AllArticles = ({ setCurrentPage, articles, setArticles }) => {
                 description={article.description}
                 content={article.content}
                 source={article.source.name}
+                url={article.url}
                 setCurrentPage={setCurrentPage}
             />
         ) 

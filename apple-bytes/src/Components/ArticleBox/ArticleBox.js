@@ -2,7 +2,7 @@ import React from 'react';
 import '../ArticleBox/ArticleBox.css';
 import { NavLink } from 'react-router-dom';
 
-const ArticleBox = ({ image, headline, date, description, setCurrentPage }) => {
+const ArticleBox = ({ image, headline, date, description, content, source, url, setCurrentPage }) => {
     return (
         <NavLink to={}>
             <h2></h2>
