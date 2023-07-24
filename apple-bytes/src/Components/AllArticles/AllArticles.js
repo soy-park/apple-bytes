@@ -1,6 +1,7 @@
 import React from 'react';
 import '../AllArticles/AllArticles.css';
 import SearchBar from '../SearchBar/SearchBar';
+import ArticleBox from '../ArticleBox/ArticleBox';
 
 const AllArticles = ({ articles, setArticles }) => {
     const articleBoxes = articles.map(article => {
@@ -13,7 +14,6 @@ const AllArticles = ({ articles, setArticles }) => {
                 description={article.description}
                 content={article.content}
                 source={article.source.name}
-                url={article.url}
             />
         ) 
     })    
