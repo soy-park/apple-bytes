@@ -11,6 +11,8 @@ const AllArticles = ({ setCurrentPage, articles, setArticles }) => {
                 headline={article.title}
                 date={article.publishedAt.split('T')[0]}
                 description={article.description}
+                content={article.content}
+                source={article.source.name}
                 setCurrentPage={setCurrentPage}
             />
         ) 
