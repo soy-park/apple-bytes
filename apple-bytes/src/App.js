@@ -1,4 +1,6 @@
 import './App.css';
+import React, { useState } from 'react';
+import Header from './Components/Header/Header';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
