@@ -1,6 +1,5 @@
 import React from 'react';
 import '../AllArticles/AllArticles.css';
-import ArticleBox 
 import SearchBar from '../SearchBar/SearchBar';
 
 const AllArticles = ({ setCurrentPage, articles, setArticles }) => {
