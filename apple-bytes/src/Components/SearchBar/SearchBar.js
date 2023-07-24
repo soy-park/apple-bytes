@@ -32,7 +32,7 @@ const SearchBar = ({ setArticles, articles }) => {
         />
         <button className="search-btn" onClick={handleSearch}>Search</button>
       </div>
-    );
+    )
   }
   
   export default SearchBar;

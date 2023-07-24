@@ -1,9 +1,8 @@
 import React from 'react';
 import '../AllArticles/AllArticles.css';
-import ArticleBox 
 import SearchBar from '../SearchBar/SearchBar';
 
-const AllArticles = ({ setCurrentPage, articles, setArticles }) => {
+const AllArticles = ({ articles, setArticles }) => {
     const articleBoxes = articles.map(article => {
         return (
             <ArticleBox
@@ -12,7 +11,9 @@ const AllArticles = ({ setCurrentPage, articles, setArticles }) => {
                 headline={article.title}
                 date={article.publishedAt.split('T')[0]}
                 description={article.description}
-                setCurrentPage={setCurrentPage}
+                content={article.content}
+                source={article.source.name}
+                url={article.url}
             />
         ) 
     })    

@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Header from './Components/Header/Header';
 import { getArticles } from './fetchAPI';
 import AllArticles from './Components/AllArticles/AllArticles';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('home');
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -17,8 +17,13 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {currentPage === 'home' && <AllArticles setCurrentPage={setCurrentPage} articles={articles} setArticles={setArticles} />}
-      {/* {currentPage === 'article' && <SingleArticle setCurrentPage={setCurrentPage} articles={articles} />} */}
+      <Switch>
+        <Route exact path='/' render={() => <AllArticles articles={articles} setArticles={setArticles} />}/>
+        <Route path='/:title' render={({match}) => {
+          const chosenTitle = match.params.title;
+          return <SingleArticle chosenTitle={chosenTitle} />
+        }}/>
+      </Switch>
     </div>
   );
 }
