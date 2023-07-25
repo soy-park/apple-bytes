@@ -1,0 +1,14 @@
+input {
+    width: 20em;
+    height: 1.5em;
+}
+
+.search-btn {
+    padding: 0.15em 2em 0.15em 2em;
+    margin-left: 0.3em;
+    font-size: 1em;
+    background-color: rgb(247, 140, 9);
+    border: 1px solid rgb(247, 140, 9);
+    border-radius: 4%;
+    color: white;
+}
