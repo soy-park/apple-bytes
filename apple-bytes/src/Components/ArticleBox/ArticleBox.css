@@ -1,5 +1,10 @@
+.link-to-single-article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .article-image {
-    width: 50%;
-    height: 50%;
-    text-align: center;
+    width: 20em;
+    height: 15em;
 }
