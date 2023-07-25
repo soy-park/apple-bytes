@@ -10,6 +10,11 @@
     cursor: pointer;
 }
 
+.searchbar-container {
+    margin-bottom: 4em;
+    text-align: center;
+}
+
 @media screen and (min-width: 768px) {
     input {
         width: 25em;

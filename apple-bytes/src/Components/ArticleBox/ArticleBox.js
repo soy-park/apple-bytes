@@ -4,12 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 const ArticleBox = ({ image, headline, date, description, content, source }) => {
     return (
-        <NavLink to={`/${headline}`}>
-            <img src={image} alt="Article image" className="article-image"/>
+        <article>
+            <NavLink to={`/${headline}`}>
+                <img src={image} alt="Article image" className="article-image"/>
+            </NavLink>
             <h3 className="headline">{headline}</h3>
             <p className="date">{date}</p>
             <p className="description">{description}</p>
-        </NavLink>
+        </article>
     )
 }
 
