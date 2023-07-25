@@ -1,9 +1,11 @@
 .apple-bytes {
-    color: rgb(247, 140, 9);
+    color: white;
     text-align: center;
     font-size: 2.5em;
 }
 
 header {
     margin-bottom: 3em;
+    width: 100%;
+    background-color: rgb(247, 140, 9);
 }
