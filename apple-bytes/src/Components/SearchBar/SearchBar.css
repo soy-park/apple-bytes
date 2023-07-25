@@ -17,9 +17,20 @@ input {
     cursor: pointer;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    input {
+        width: 22em;
+        height: 2em;
+    }
+
+    .search-btn {
+        padding: 0.35em 2em 0.35em 2em;
+    }
+}
+
 @media screen and (max-width: 767px) {
     input {
-        width: 17em;
+        width: 18em;
     }
 
     .search-btn {
