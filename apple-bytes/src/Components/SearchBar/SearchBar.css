@@ -12,3 +12,27 @@ input {
     border-radius: 4%;
     color: white;
 }
+
+.search-btn:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    input {
+        width: 17em;
+    }
+
+    .search-btn {
+        padding: 0.15em 1.3em 0.15em 1.3em;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    input {
+        width: 13em;
+    }
+
+    .search-btn {
+        padding: 0.15em 1em 0.15em 1em;
+    }
+}
