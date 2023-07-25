@@ -1,12 +1,5 @@
-input {
-    width: 20em;
-    height: 1.5em;
-}
-
 .search-btn {
-    padding: 0.15em 2em 0.15em 2em;
     margin-left: 0.3em;
-    font-size: 1em;
     background-color: rgb(247, 140, 9);
     border: 1px solid rgb(247, 140, 9);
     border-radius: 4%;
@@ -17,33 +10,37 @@ input {
     cursor: pointer;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) {
     input {
-        width: 22em;
+        width: 25em;
         height: 2em;
     }
 
     .search-btn {
-        padding: 0.35em 2em 0.35em 2em;
+        padding: 0.27em 2em 0.27em 2em;
+        font-size: 1.2em;
     }
 }
 
 @media screen and (max-width: 767px) {
     input {
-        width: 18em;
+        width: 15em;
+        height: 1.5em;
     }
 
     .search-btn {
         padding: 0.15em 1.3em 0.15em 1.3em;
+        font-size: 1em;
     }
 }
 
 @media screen and (max-width: 280px) {
     input {
-        width: 13em;
+        width: 12em;
     }
 
     .search-btn {
         padding: 0.15em 1em 0.15em 1em;
+        font-size: 1em;
     }
 }
