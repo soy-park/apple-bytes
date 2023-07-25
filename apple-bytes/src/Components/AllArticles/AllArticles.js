@@ -21,7 +21,9 @@ const AllArticles = ({ articles, setArticles }) => {
     return (
         <main className="all-articles-page">
             <SearchBar articles={articles} setArticles={setArticles} />
-            {articleBoxes}
+            <section className="articles-container">
+                {articleBoxes}
+            </section>
         </main>
     );
 }
