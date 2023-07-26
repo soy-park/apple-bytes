@@ -12,10 +12,6 @@ const SearchBar = ({ setArticles, articles }) => {
     const handleChange = (event) => {
         const searchTerm = event.target.value;
         setInput(searchTerm);
-
-        if (!input) {
-            setArticles(articles);
-        }
     }
 
     const handleSearch = () => {
@@ -37,7 +33,8 @@ const SearchBar = ({ setArticles, articles }) => {
             onChange={(event) => handleChange(event)}
             className="search-field"
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
+        {input && <button className="search-btn" onClick={handleSearch}>Search</button>}
+        {!input && <button className="all-articles-btn" onClick={searchAll}>Articles</button>}
       </div>
     )
 }
