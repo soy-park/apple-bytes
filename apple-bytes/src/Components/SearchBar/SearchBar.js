@@ -7,7 +7,6 @@ const SearchBar = ({ setArticles, articles }) => {
     useEffect = (() => {
         handleSearch();
         handleChange();
-        searchAll();
     }, [input]);
 
     const handleChange = (event) => {
@@ -16,12 +15,12 @@ const SearchBar = ({ setArticles, articles }) => {
     }
 
     const handleSearch = () => {
-        const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
-        setArticles(filteredArticles); 
-    }
-
-    const searchAll = () => {
-        setArticles(articles)
+        if (!input) {
+            setArticles(articles);
+        } else {
+            const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
+            setArticles(filteredArticles);
+        }
     }
             
     return (
@@ -35,7 +34,7 @@ const SearchBar = ({ setArticles, articles }) => {
             className="search-field"
         />
         {input && <button className="search-btn" onClick={handleSearch}>Search</button>}
-        {!input && <button className="all-articles-btn" onClick={searchAll}>Articles</button>}
+        {!input && <button className="all-articles-btn" onClick={handleSearch}>Articles</button>}
       </div>
     )
 }
