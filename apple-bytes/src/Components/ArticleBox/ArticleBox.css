@@ -1,0 +1,24 @@
+.link-to-single-article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-image {
+    width: 20em;
+    height: 15em;
+    transition: .3s ease;
+}
+
+.article-image:hover {
+    opacity: 0.4;
+}
+
+.headline {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
+
+.date {
+    margin-bottom: 0em;
+}
