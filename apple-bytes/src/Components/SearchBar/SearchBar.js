@@ -5,9 +5,11 @@ const SearchBar = ({ setArticles, articles }) => {
     const [input, setInput] = useState("");
 
     const handleChange = (event) => {
-        setInput(event.target.value);
         if (!event.target.value) {
-            setArticles(articles);
+            return setInput("");
+            // setArticles(articles);
+        } else {
+            return setInput(event.target.value);
         }
     }
 
@@ -15,10 +17,10 @@ const SearchBar = ({ setArticles, articles }) => {
         event.preventDefault();
         if (!input) {
             return alert("Please provide a search term")
+        } else {
+            const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
+            return setArticles(filteredArticles);
         }  
-        
-        const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
-        setArticles(filteredArticles);
     }
             
     return (
