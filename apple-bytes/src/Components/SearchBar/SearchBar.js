@@ -6,7 +6,7 @@ const SearchBar = ({ setArticles, articles }) => {
 
     const handleChange = (event) => {
         setInput(event.target.value);
-        if (!input) {
+        if (!event.target.value) {
             setArticles(articles);
         }
     }
@@ -15,10 +15,10 @@ const SearchBar = ({ setArticles, articles }) => {
         event.preventDefault();
         if (!input) {
             return alert("Please provide a search term")
-        } else {
-            const filteredArticles = articles.filter(article => (article.title || article.description || article.date).toLowerCase().includes(input.toLowerCase()));
-            setArticles(filteredArticles);
-        }
+        }  
+        
+        const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
+        setArticles(filteredArticles);
     }
             
     return (
@@ -33,6 +33,6 @@ const SearchBar = ({ setArticles, articles }) => {
         <button className="search-btn" onClick={handleSearch}>Search</button>
       </div>
     )
-  }
+}
   
   export default SearchBar;
