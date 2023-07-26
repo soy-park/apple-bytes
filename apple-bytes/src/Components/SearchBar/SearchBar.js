@@ -7,6 +7,7 @@ const SearchBar = ({ setArticles, articles }) => {
     useEffect = (() => {
         handleSearch();
         handleChange();
+        searchAll();
     }, [input]);
 
     const handleChange = (event) => {
@@ -15,12 +16,12 @@ const SearchBar = ({ setArticles, articles }) => {
     }
 
     const handleSearch = () => {
-        if (!input) {
-            alert("Please provide a search term");
-        } else {
-            const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
-            setArticles(filteredArticles);
-        }  
+        const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
+        setArticles(filteredArticles); 
+    }
+
+    const searchAll = () => {
+        setArticles(articles)
     }
             
     return (
