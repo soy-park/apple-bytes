@@ -7,7 +7,7 @@ const AllArticles = ({ articles, setArticles }) => {
     const articleBoxes = articles.map(article => {
         return (
             <ArticleBox
-                key={Date.now()}
+                key={article.url}
                 image={article.urlToImage}
                 headline={article.title}
                 date={article.publishedAt.split('T')[0]}

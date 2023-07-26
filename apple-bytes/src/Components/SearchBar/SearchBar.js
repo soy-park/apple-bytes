@@ -30,7 +30,7 @@ const SearchBar = ({ setArticles, articles }) => {
             id="article"
             name="article"
             value={input}
-            onChange={handleChange}
+            onChange={(event) => handleChange(event)}
         />
         <button className="search-btn" onClick={handleSearch}>Search</button>
       </div>
