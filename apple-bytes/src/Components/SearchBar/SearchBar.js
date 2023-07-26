@@ -5,21 +5,25 @@ const SearchBar = ({ setArticles, articles }) => {
     const [input, setInput] = useState("");
 
     useEffect = (() => {
-        handleSearch()
+        handleSearch();
+        handleChange();
     }, [input]);
 
     const handleChange = (event) => {
         const searchTerm = event.target.value;
         setInput(searchTerm);
+
+        if (!input) {
+            setArticles(articles);
+        }
     }
 
     const handleSearch = () => {
         if (!input) {
-            setArticles(articles);
-            return alert("Please provide a search term");
+            alert("Please provide a search term");
         } else {
             const filteredArticles = articles.filter(article => (article.title.toLowerCase().includes(input.toLowerCase()) || article.description.toLowerCase().includes(input.toLowerCase()) || article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())))
-            return setArticles(filteredArticles);
+            setArticles(filteredArticles);
         }  
     }
             
