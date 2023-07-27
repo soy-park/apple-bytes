@@ -22,6 +22,7 @@ const SearchBar = ({ articles, setFilteredArticles }) => {
     }
 
     const goToAllArticles = () => {
+        setSearch('');
         setFilteredArticles([]);
     }
 
