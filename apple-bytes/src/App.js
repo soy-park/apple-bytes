@@ -122,6 +122,23 @@ const App = () => {
 ]
 
   const [articles, setArticles] = useState(mockArray)
+  const [filteredArticles, setFilteredArticles] = useState([]);
+  const [searchCriteria, setSearchCriteria] = useState('');
+
+  const filterArticles = (search) => {
+    const filteredArticles = articles.filter(article => (
+      article.title.toLowerCase().includes(search.toLowerCase()) ||
+      article.description.toLowerCase().includes(search.toLowerCase()) ||
+      article.publishedAt.split('T')[0].toLowerCase().includes(search.toLowerCase())
+    ));
+    setFilteredArticles(filteredArticles);
+    setSearchCriteria(search);
+  }
+
+  const clearFilteredArticles = () => {
+    setFilteredArticles([]);
+    setSearchCriteria('');
+  }
 
   return (
     <div className="App">

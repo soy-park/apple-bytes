@@ -3,28 +3,26 @@ import '../SearchBar/SearchBar.css';
 
 const SearchBar = ({ setArticles, articles }) => {
     const [input, setInput] = useState("");
-    const [filteredArticles, setFilteredArticles] = useState([]);
-
-    useEffect(() => {
-        if (!input) {
-            setArticles(articles);
-        } else {
-            const filteredArticles = articles.filter(article => (
-                article.title.toLowerCase().includes(input.toLowerCase()) ||
-                article.description.toLowerCase().includes(input.toLowerCase()) ||
-                article.publishedAt.split('T')[0].toLowerCase().includes(input.toLowerCase())
-            ));
-            setArticles(filteredArticles);
-        }
-    }, [input, articles]);
 
     const handleChange = (search) => {
+        if (!input) {
+            setArticles(articles);
+        }
         setInput(search);
     }
 
     const handleSearch = () => {
-        setArticles(filteredArticles);
+        if (!input) {
+            setArticles(articles);
+        } else {
+       
+            setArticles(filteredArticles);
+        }
     }
+
+    useEffect(() => {
+        handleSearch();
+    }, [input, articles]);
 
     return (
       <div className="searchbar-container">
@@ -33,6 +31,7 @@ const SearchBar = ({ setArticles, articles }) => {
             id="article"
             name="article"
             value={input}
+            placeholder="Search articles"
             onChange={(event) => handleChange(event.target.value)}
             className="search-field"
         />
