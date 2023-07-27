@@ -3,7 +3,7 @@ import '../SingleArticle/SingleArticle.css';
 import { useHistory } from 'react-router-dom';
 
 const SingleArticle = ({ chosenTitle, articles }) => {
-    const chosenArticle = articles.find(article => article.title.replace(/"/g, '').includes(chosenTitle.replace(/"/g, '')));
+    const chosenArticle = articles.find(article => article.title.includes(chosenTitle));
     const history = useHistory(); 
 
     const returnToArticles = () => {
