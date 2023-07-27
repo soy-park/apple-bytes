@@ -5,6 +5,7 @@ import { getArticles } from './fetchAPI';
 import AllArticles from './Components/AllArticles/AllArticles';
 import { Route, Switch } from 'react-router-dom';
 import SingleArticle from './Components/SingleArticle/SingleArticle';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 const App = () => {
   // const [articles, setArticles] = useState([]);
@@ -12,7 +13,7 @@ const App = () => {
   // useEffect(() => {
   //   getArticles()
   //     .then(data => setArticles(data.articles))
-  //     .catch(error => {throw new Error(`Error fetchign data: ${error}`)})
+  //     .catch(error => {throw new Error(`Error fetching data: ${error}`)})
   // })
 
   const mockArray = [{
@@ -122,32 +123,34 @@ const App = () => {
 ]
 
   const [articles, setArticles] = useState(mockArray)
-  const [filteredArticles, setFilteredArticles] = useState([]);
-  const [searchCriteria, setSearchCriteria] = useState('');
+  // const [filteredArticles, setFilteredArticles] = useState([]);
+  // const [searchCriteria, setSearchCriteria] = useState('');
 
-  const filterArticles = (search) => {
-    const filteredArticles = articles.filter(article => (
-      article.title.toLowerCase().includes(search.toLowerCase()) ||
-      article.description.toLowerCase().includes(search.toLowerCase()) ||
-      article.publishedAt.split('T')[0].toLowerCase().includes(search.toLowerCase())
-    ));
-    setFilteredArticles(filteredArticles);
-    setSearchCriteria(search);
-  }
+  // const filterArticles = (search) => {
+  //   const filteredArticles = articles.filter(article => (
+  //     article.title.toLowerCase().includes(search.toLowerCase()) ||
+  //     article.description.toLowerCase().includes(search.toLowerCase()) ||
+  //     article.publishedAt.split('T')[0].toLowerCase().includes(search.toLowerCase())
+  //   ));
+  //   setFilteredArticles(filteredArticles);
+  //   setSearchCriteria(search);
+  // }
 
-  const clearFilteredArticles = () => {
-    setFilteredArticles([]);
-    setSearchCriteria('');
-  }
+  // const clearFilteredArticles = () => {
+  //   setFilteredArticles([]);
+  //   setSearchCriteria('');
+  // }
 
   return (
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/' 
-          {filteredArticles.length === 0 ? (<AllArticles articles={articles} setArticles={setArticles} filterArticles={filterArticles} clearFilter={clearFilteredArticles} />
-          ) : (<AllArticles articles={filteredArticles} setArticles={setArticles} filterArticles={filterArticles} clearFilter={clearFilteredArticles} />
-          )}/>
+        <Route exact path='/' render={() => (
+          <>
+            <SearchBar articles={articles} setArticles={setArticles} />
+            <AllArticles articles={articles} setArticles={setArticles} />
+          </>
+        )}/>
         <Route path='/:title' render={({match}) => {
           const chosenTitle = match.params.title;
           return <SingleArticle chosenTitle={chosenTitle} articles={articles} />

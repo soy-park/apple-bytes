@@ -2,26 +2,30 @@ import React, { useState, useEffect } from 'react';
 import '../SearchBar/SearchBar.css';
 
 const SearchBar = ({ setArticles, articles, filterArticles, clearFilter }) => {
-    const [input, setInput] = useState("");
+    const [search, setSearch] = useState("");
 
-    const handleChange = (searchTerm) => {
-        setInput(searchTerm);
-        if (!input) {
-            clearFilter();
-        }
+    const handleChange = (event) => {
+        setSearch(event.target.value);
+        // if (!searchTerm) {
+        //     clearFilter();
+        // }
     }
 
-    const handleSearch = (search) => {
-        if (!input) {
-            alert('Please provide search term');
+    const handleSearch = (searchTerm) => {
+        setSearch(searchTerm)
+        if (!search) {
+            setArticles(articles);
+            alert('Please provide a search term');
         } else {
-            filterArticles(search);
+            // filterArticles(search);
+            const filteredArticles = articles.filter(article => (
+                article.title.toLowerCase().includes(search.toLowerCase()) ||
+                article.description.toLowerCase().includes(search.toLowerCase()) ||
+                article.publishedAt.split('T')[0].toLowerCase().includes(search.toLowerCase())
+            ));
+            setArticles(filteredArticles);
         }
     }
-
-    // useEffect(() => {
-    //     handleSearch();
-    // }, [input, articles]);
 
     return (
       <div className="searchbar-container">
@@ -29,12 +33,12 @@ const SearchBar = ({ setArticles, articles, filterArticles, clearFilter }) => {
             type="text"
             id="article"
             name="article"
-            value={input}
+            value={search}
             placeholder="Search articles"
-            onChange={(event) => handleChange(event.target.value)}
+            onChange={handleChange}
             className="search-field"
         />
-        <button className="search-btn" onClick={() => handleSearch(input)}>Search</button>
+        <button className="search-btn" onClick={handleSearch}>Search</button>
       </div>
     )
 }
