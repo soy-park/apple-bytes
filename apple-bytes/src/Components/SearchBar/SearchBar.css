@@ -1,5 +1,9 @@
-.search-btn {
-    margin-left: 0.3em;
+.buttons-container {
+    margin-top: 0.2em;
+}
+
+.search-btn, 
+.articles-btn {
     background-color: rgb(247, 140, 9);
     border: 1px solid rgb(247, 140, 9);
     border-radius: 4%;
@@ -8,6 +12,10 @@
 
 .search-btn:hover {
     cursor: pointer;
+}
+
+.articles-btn {
+    margin-left: 0.5em;
 }
 
 .searchbar-container {
@@ -21,7 +29,8 @@
         height: 2em;
     }
 
-    .search-btn {
+    .search-btn, 
+    .articles-btn {
         padding: 0.27em 2em 0.27em 2em;
         font-size: 1.2em;
     }
@@ -33,7 +42,8 @@
         height: 1.5em;
     }
 
-    .search-btn {
+    .search-btn, 
+    .articles-btn {
         padding: 0.15em 1.3em 0.15em 1.3em;
         font-size: 1em;
     }
@@ -44,7 +54,8 @@
         width: 12em;
     }
 
-    .search-btn {
+    .search-btn, 
+    .articles-btn {
         padding: 0.15em 1em 0.15em 1em;
         font-size: 1em;
     }
