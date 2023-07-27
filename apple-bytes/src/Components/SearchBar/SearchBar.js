@@ -22,7 +22,7 @@ const SearchBar = ({ articles, setFilteredArticles }) => {
     }
 
     const goToAllArticles = () => {
-
+        setFilteredArticles([]);
     }
 
     return (
