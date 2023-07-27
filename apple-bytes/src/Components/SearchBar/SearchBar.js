@@ -1,38 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../SearchBar/SearchBar.css';
 
-const SearchBar = ({ setArticles, articles }) => {
-    const [input, setInput] = useState("");
+const SearchBar = ({ articles, setFilteredArticles }) => {
+    const [search, setSearch] = useState("");
 
     const handleChange = (event) => {
-        setInput(event.target.value);
-        if (!input) {
-            setArticles(articles);
+        setSearch(event.target.value);
+    }
+
+    const handleSearch = () => {
+        if (!search) {
+            alert('Please provide a search term');
+        } else {
+            const filtered = articles.filter(article => (
+                article.title.toLowerCase().includes(search.toLowerCase()) ||
+                article.description.toLowerCase().includes(search.toLowerCase()) ||
+                article.publishedAt.split('T')[0].toLowerCase().includes(search.toLowerCase())
+            ));
+            setFilteredArticles(filtered);
         }
     }
 
-    const handleSearch = (event) => {
-        event.preventDefault();
-        if (!input) {
-            return alert("Please provide a search term")
-        } else {
-            const filteredArticles = articles.filter(article => (article.title || article.description || article.date).toLowerCase().includes(input.toLowerCase()));
-            setArticles(filteredArticles);
-        }
+    const goToAllArticles = () => {
+        setSearch('');
+        setFilteredArticles([]);
     }
-            
+
     return (
       <div className="searchbar-container">
         <input 
             type="text"
             id="article"
             name="article"
-            value={input}
+            value={search}
+            placeholder="Search articles"
             onChange={handleChange}
+            className="search-field"
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
+        <div className="buttons-container">
+            <button className="search-btn" onClick={handleSearch}>Search</button>
+            <button className="articles-btn" onClick={goToAllArticles}>All Articles</button>
+        </div>
       </div>
     )
-  }
+}
   
   export default SearchBar;
