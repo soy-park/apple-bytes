@@ -144,7 +144,7 @@ const App = () => {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/' render={() => <AllArticles articles={articles} setArticles={setArticles} />}/>
+        <Route exact path='/' render={() => <AllArticles articles={articles} setArticles={setArticles} filterArticles={filterArticles} clearFilter={clearFilteredArticles} />}/>
         <Route path='/:title' render={({match}) => {
           const chosenTitle = match.params.title;
           return <SingleArticle chosenTitle={chosenTitle} articles={articles} />
