@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import '../SearchBar/SearchBar.css';
 
-const SearchBar = ({ setArticles, articles }) => {
+const SearchBar = ({ setArticles, articles, filterArticles, clearFilter }) => {
     const [input, setInput] = useState("");
 
-    const handleChange = (search) => {
+    const handleChange = (searchTerm) => {
+        setInput(searchTerm);
         if (!input) {
-            setArticles(articles);
+            clearFilter();
         }
-        setInput(search);
     }
 
-    const handleSearch = () => {
+    const handleSearch = (search) => {
         if (!input) {
-            setArticles(articles);
+            alert('Please provide search term');
         } else {
-       
-            setArticles(filteredArticles);
+            filterArticles(search);
         }
     }
 
-    useEffect(() => {
-        handleSearch();
-    }, [input, articles]);
+    // useEffect(() => {
+    //     handleSearch();
+    // }, [input, articles]);
 
     return (
       <div className="searchbar-container">
@@ -35,7 +34,7 @@ const SearchBar = ({ setArticles, articles }) => {
             onChange={(event) => handleChange(event.target.value)}
             className="search-field"
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
+        <button className="search-btn" onClick={() => handleSearch(input)}>Search</button>
       </div>
     )
 }

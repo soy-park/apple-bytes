@@ -144,7 +144,10 @@ const App = () => {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/' render={() => <AllArticles articles={articles} setArticles={setArticles} filterArticles={filterArticles} clearFilter={clearFilteredArticles} />}/>
+        <Route exact path='/' 
+          {filteredArticles.length === 0 ? (<AllArticles articles={articles} setArticles={setArticles} filterArticles={filterArticles} clearFilter={clearFilteredArticles} />
+          ) : (<AllArticles articles={filteredArticles} setArticles={setArticles} filterArticles={filterArticles} clearFilter={clearFilteredArticles} />
+          )}/>
         <Route path='/:title' render={({match}) => {
           const chosenTitle = match.params.title;
           return <SingleArticle chosenTitle={chosenTitle} articles={articles} />
