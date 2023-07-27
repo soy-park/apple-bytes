@@ -3,7 +3,7 @@ import '../AllArticles/AllArticles.css';
 import SearchBar from '../SearchBar/SearchBar';
 import ArticleBox from '../ArticleBox/ArticleBox';
 
-const AllArticles = ({ articles, setArticles, filterArticles, clearFilter }) => {
+const AllArticles = ({ articles }) => {
     const articleBoxes = articles.map(article => {
         return (
             <ArticleBox

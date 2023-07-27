@@ -123,7 +123,7 @@ const App = () => {
 ]
 
   const [articles, setArticles] = useState(mockArray)
-  // const [filteredArticles, setFilteredArticles] = useState([]);
+  const [filteredArticles, setFilteredArticles] = useState([]);
   // const [searchCriteria, setSearchCriteria] = useState('');
 
   // const filterArticles = (search) => {
@@ -147,8 +147,8 @@ const App = () => {
       <Switch>
         <Route exact path='/' render={() => (
           <>
-            <SearchBar articles={articles} setArticles={setArticles} />
-            <AllArticles articles={articles} setArticles={setArticles} />
+            <SearchBar articles={articles} setFilteredArticles={setFilteredArticles} />
+            {filteredArticles.length ? <AllArticles articles={filteredArticles} /> : <AllArticles articles={articles} />}
           </>
         )}/>
         <Route path='/:title' render={({match}) => {

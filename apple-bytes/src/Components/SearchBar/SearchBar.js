@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import '../SearchBar/SearchBar.css';
 
-const SearchBar = ({ setArticles, articles, filterArticles, clearFilter }) => {
+const SearchBar = ({ articles, setFilteredArticles }) => {
     const [search, setSearch] = useState("");
 
     const handleChange = (event) => {
         setSearch(event.target.value);
-        // if (!searchTerm) {
-        //     clearFilter();
-        // }
     }
 
-    const handleSearch = (searchTerm) => {
-        setSearch(searchTerm)
+    const handleSearch = () => {
         if (!search) {
-            setArticles(articles);
             alert('Please provide a search term');
         } else {
-            // filterArticles(search);
-            const filteredArticles = articles.filter(article => (
+            const filtered = articles.filter(article => (
                 article.title.toLowerCase().includes(search.toLowerCase()) ||
                 article.description.toLowerCase().includes(search.toLowerCase()) ||
                 article.publishedAt.split('T')[0].toLowerCase().includes(search.toLowerCase())
             ));
-            setArticles(filteredArticles);
+            setFilteredArticles(filtered);
         }
+    }
+
+    const goToAllArticles = () => {
+
     }
 
     return (
@@ -38,7 +36,10 @@ const SearchBar = ({ setArticles, articles, filterArticles, clearFilter }) => {
             onChange={handleChange}
             className="search-field"
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
+        <div className="buttons-container">
+            <button className="search-btn" onClick={handleSearch}>Search</button>
+            <button className="articles-btn" onClick={goToAllArticles}>All Articles</button>
+        </div>
       </div>
     )
 }
