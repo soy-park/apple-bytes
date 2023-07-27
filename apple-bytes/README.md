@@ -13,6 +13,7 @@ I created a news reader application that pulls articles from News API (https://n
 4. Run command `npm start` to launch the application in the web browser
 
 ## Preview of App
+<div style="width:100%;height:0;padding-bottom:60%;position:relative;"><iframe src="https://giphy.com/embed/RtxFBImzlADtFMQvdz" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/RtxFBImzlADtFMQvdz">via GIPHY</a></p>
 ![Image](assets/preview.gif - file here)
 
 ## Context
